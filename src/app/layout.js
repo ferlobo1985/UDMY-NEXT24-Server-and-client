@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import Header from '@/components/header'
 import "bootstrap/dist/css/bootstrap.css"
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className='container py-3'>
-          <div>Header</div>
+          <Header/>
           {children}
         </div>
       </body>
