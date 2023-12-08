@@ -25,6 +25,37 @@ export async function addEmployee(formState,formdata){
     redirect('/');
 }
 
+export async function editEmployee(formState,data){
+    try{
+        const {fullname,position,age} = data;
+
+        if(!fullname) { return {message:'The fullname is empty'}}
+        if(!position) { return {message:'The position is empty'}}
+        if(!age) { return {message:'The age is empty'}}
+
+        const res = await fetch(`http://localhost:3004/employees/${data.id}`,{
+            method:'PATCH',
+            header:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                fullname,
+                position,
+                age
+            })
+        });
+        
+        if(!res.ok){
+            throw new Error(`${res.status} ${res.statusText}`)
+        }
+    } catch(error){
+        return {message: error.message}
+    }
+    redirect('/');
+}
+
+
 
 export async function counterTrigger(){
     console.log('Counter trigger')
