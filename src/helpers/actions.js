@@ -35,7 +35,7 @@ export async function editEmployee(formState,data){
 
         const res = await fetch(`http://localhost:3004/employees/${data.id}`,{
             method:'PATCH',
-            header:{
+            headers:{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },

@@ -2,7 +2,12 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+import { editEmployee } from '@/helpers/actions'
+import { useFormState } from 'react-dom';
+
 export default function EditForm({ employee }) {
+    const initialState = {message:null}
+    const [state, formAction] = useFormState(editEmployee,initialState)
 
     const formik = useFormik({
         enableReinitialize:true,
@@ -18,7 +23,8 @@ export default function EditForm({ employee }) {
             age:Yup.string().required('Sorry, Age is required'),
         }),
         onSubmit: (values)=>{
-            console.log(values)
+            //console.log(values)
+            formAction(values)
         }
     })
 
@@ -63,9 +69,16 @@ export default function EditForm({ employee }) {
           name="age"
           {...formik.getFieldProps("age")}
         />
-          {formik.errors.age && formik.touched.age ? (
+        {formik.errors.age && formik.touched.age ? (
             <div className="alert alert-warning" role="alert">
                 {formik.errors.age}
+            </div>
+        ):null}
+
+
+        {state.message ?(
+            <div className="alert alert-danger" role="alert">
+                {state.message}
             </div>
         ):null}
 
