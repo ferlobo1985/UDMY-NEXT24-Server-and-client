@@ -5,17 +5,24 @@ import { redirect } from 'next/navigation';
 
 
 export async function addEmployee(formState,formdata){
-    return {
-        message:'Something is wrong'
+    try{
+        const fullname = formdata.get('fullname');
+        const position =  formdata.get('position');
+        const age =  formdata.get('age');
+
+        if(!fullname) { return {message:'The fullname is empty'}}
+        if(!position) { return {message:'The position is empty'}}
+        if(!age) { return {message:'The age is empty'}}
+
+        await axios.post(`http://localhost:3004/employees`,{
+            fullname:fullname,
+            position: position,
+            age:age
+        });
+    } catch(e){
+        return {message:'Something went wrong'}
     }
-
-
-    // await axios.post(`http://localhost:3004/employees`,{
-    //     fullname: formdata.get('fullname'),
-    //     position: formdata.get('position'),
-    //     age: formdata.get('age'),
-    // });
-    // redirect('/');
+    redirect('/');
 }
 
 
