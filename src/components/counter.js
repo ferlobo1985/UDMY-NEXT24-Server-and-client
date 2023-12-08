@@ -1,15 +1,11 @@
 'use client'
 import {useState} from 'react'
+import { counterTrigger } from '@/helpers/actions'
 
-export default function Counter(props){
+
+export default function Counter(){
     const [count,setCount] = useState(0);
     console.log('where')
-
-    const someFunc = () =>{
-        'use server'
-        console.log('someFunc')
-    }
-
 
     return(
         <div>
@@ -18,7 +14,7 @@ export default function Counter(props){
             <button
                 onClick={()=>{
                     setCount(count+1);
-                    props.counterTrigger();
+                    counterTrigger();
                 }}
             >
                 Update
