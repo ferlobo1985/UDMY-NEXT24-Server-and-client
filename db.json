@@ -29,24 +29,6 @@
       "position": "Soldier",
       "age": "55",
       "id": 5
-    },
-    {
-      "fullname": "Tom Hanks",
-      "position": "Employee",
-      "age": "70",
-      "id": 6
-    },
-    {
-      "fullname": "Francis Jones",
-      "position": "Delivery",
-      "age": "35",
-      "id": 7
-    },
-    {
-      "fullname": "Steve Jobs 2nd",
-      "position": "Manger",
-      "age": "55",
-      "id": 8
     }
   ]
 }

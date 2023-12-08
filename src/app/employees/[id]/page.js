@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from 'next/link';
+import { deleteEmployee } from '@/helpers/actions'
 
 async function getEmployee(pageID){
   const res = await fetch(`http://localhost:3004/employees/${pageID}`);
@@ -12,7 +13,8 @@ async function getEmployee(pageID){
 
 export default async function EmployeeByIDPage(props) {
   const pageID = props.params.id;
-  const employee = await getEmployee(pageID)
+  const employee = await getEmployee(pageID);
+  const deleteAction = deleteEmployee.bind(null,pageID)
 
 
     return (
@@ -26,6 +28,12 @@ export default async function EmployeeByIDPage(props) {
         <Link href={`/form/edit/${employee.id}`}>
           Edit employee
         </Link>
+        <hr/>
+        <form action={deleteAction}>
+          <button type="submit">
+            Delete user
+          </button>
+        </form>
       </>
     )
   }

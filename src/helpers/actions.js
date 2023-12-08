@@ -56,6 +56,14 @@ export async function editEmployee(formState,data){
 }
 
 
+export async function deleteEmployee(ID){
+    await fetch(`http://localhost:3004/employees/${ID}`,{
+        method:'DELETE'
+    });
+    redirect('/')
+}
+
+
 
 export async function counterTrigger(){
     console.log('Counter trigger')
