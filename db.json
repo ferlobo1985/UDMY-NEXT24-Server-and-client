@@ -35,6 +35,12 @@
       "position": "Employee",
       "age": "70",
       "id": 6
+    },
+    {
+      "fullname": "",
+      "position": "",
+      "age": "",
+      "id": 7
     }
   ]
 }
