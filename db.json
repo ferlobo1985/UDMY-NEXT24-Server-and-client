@@ -1,0 +1,22 @@
+{
+    "employees": [
+      {
+        "id": 1,
+        "fullname": "Vernita Glow",
+        "age": "35",
+        "position": "Manager"
+      },
+      {
+        "id": 2,
+        "fullname": "Marc Ronson",
+        "age": "25",
+        "position": "Developer"
+      },
+      {
+        "id": 3,
+        "fullname": "Usher Davis",
+        "age": "31",
+        "position": "Designer"
+      }
+    ]
+}
