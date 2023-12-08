@@ -1,24 +1,22 @@
-import axios from 'axios';
-import { redirect } from 'next/navigation';
-
+import {addEmployee} from '@/helpers/actions'
 
 export default function AddPage() {
 
-  async function onSubmit(formdata){
-    'use server'
-    await axios.post(`http://localhost:3004/employees`,{
-      fullname: formdata.get('fullname'),
-      position: formdata.get('position'),
-      age: formdata.get('age'),
-    });
-    redirect('/');
-  }
+  // async function onSubmit(formdata){
+  //   'use server'
+  //   await axios.post(`http://localhost:3004/employees`,{
+  //     fullname: formdata.get('fullname'),
+  //     position: formdata.get('position'),
+  //     age: formdata.get('age'),
+  //   });
+  //   redirect('/');
+  // }
 
-  
+
     return (
       <>
         <h1>Add Employee</h1>
-        <form action={onSubmit}>
+        <form action={addEmployee}>
           <input type="text" className="form-control mb-3" id="fullname" placeholder="Enter the fullname" name="fullname"/>
 
           <input type="text" className="form-control mb-3" id="position" placeholder="Enter the position" name="position"/>
