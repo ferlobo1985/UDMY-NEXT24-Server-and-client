@@ -6,6 +6,7 @@ import Counter from '@/components/counter';
 
 
 async function getEmployees(){
+  //const res = await fetch(`http://localhost:3004/employees`,{next:{revalidate:5}});
   const res = await fetch(`http://localhost:3004/employees`);
   if(!res.ok){
     throw new Error('Oops, no employees')
