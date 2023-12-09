@@ -1,6 +1,7 @@
 'use server'
 
 import axios from 'axios';
+import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 
@@ -22,6 +23,8 @@ export async function addEmployee(formState,formdata){
     } catch(e){
         return {message:'Something went wrong'}
     }
+    /// next disable caching for '/home'
+    revalidatePath('/')
     redirect('/');
 }
 
@@ -45,13 +48,15 @@ export async function editEmployee(formState,data){
                 age
             })
         });
-        
+
         if(!res.ok){
             throw new Error(`${res.status} ${res.statusText}`)
         }
     } catch(error){
         return {message: error.message}
     }
+    revalidatePath(`/employees/${data.id}`)
+    revalidatePath('/')
     redirect('/');
 }
 
@@ -60,6 +65,7 @@ export async function deleteEmployee(ID){
     await fetch(`http://localhost:3004/employees/${ID}`,{
         method:'DELETE'
     });
+    revalidatePath('/')
     redirect('/')
 }
 
