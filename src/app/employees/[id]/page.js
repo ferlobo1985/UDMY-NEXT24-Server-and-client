@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from 'next/link';
 import { deleteEmployee } from '@/helpers/actions'
 
+
 async function getEmployee(pageID){
   const res = await fetch(`http://localhost:3004/employees/${pageID}`);
   if(!res.ok){

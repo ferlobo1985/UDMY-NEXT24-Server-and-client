@@ -29,6 +29,24 @@
       "position": "Soldier",
       "age": "55",
       "id": 5
+    },
+    {
+      "fullname": "Yarn Son ",
+      "position": "Common",
+      "age": "21",
+      "id": 6
+    },
+    {
+      "fullname": "Lisa simpson",
+      "position": "Manager",
+      "age": "25",
+      "id": 7
+    },
+    {
+      "fullname": "Marc miles",
+      "position": "Manager",
+      "age": "23",
+      "id": 8
     }
   ]
 }
