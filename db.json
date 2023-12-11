@@ -53,6 +53,12 @@
       "position": "Janitor",
       "age": "45",
       "id": 9
+    },
+    {
+      "fullname": "Francis miles jon",
+      "position": "Manager",
+      "age": 45,
+      "id": 10
     }
   ]
 }
