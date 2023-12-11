@@ -11,6 +11,9 @@ export default function Header(){
                 <Link href="/about_us" className='me-3 py-2 link-body-emphasis text-decoration-none'>
                     About us
                 </Link>
+                <Link href="/testing" className='me-3 py-2 link-body-emphasis text-decoration-none'>
+                   Testing
+                </Link>
             </nav>
 
         </div>
